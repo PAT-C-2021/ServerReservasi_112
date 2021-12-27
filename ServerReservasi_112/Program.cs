@@ -7,6 +7,7 @@ using System.ServiceModel;
 using ServerReservasi_112;
 using ServiceReservasi;
 using System.ServiceModel.Description;
+
 using System.ServiceModel.Channels;
 
 namespace ServerReservasi_112
@@ -24,10 +25,12 @@ namespace ServerReservasi_112
                 //ALAMAT BASE ADDRESS
                 hostObj.AddServiceEndpoint(typeof(IService1), bind, "");
                 //ALAMAT ENDPOINT
+                
                 //wsdl
-                ServiceMetadataBehavior smb = new
+               ServiceMetadataBehavior smb = new
                ServiceMetadataBehavior(); //Service Runtime Player (dibuka saat development, tidak untuk dibuka)
                 hostObj.Description.Behaviors.Add(smb);
+                
                 //mex
                 Binding mexbind =
                MetadataExchangeBindings.CreateMexHttpBinding();
